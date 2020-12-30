@@ -1,5 +1,24 @@
 pipeline {
-    agent any
+    agent {
+        kubernetes {
+        label "jenkins-worker-terra-${UUID.randomUUID().toString()}"
+            defaultContainer 'jnlp'
+            yaml '''
+                apiVersion: v1
+                kind: Pod
+                spec:
+                containers:
+                    - name: jnlp
+                    image: jenkins/jnlp-slave
+                    tty: true
+                    pull: always
+                    - name: ubuntu
+                    image: ubuntu
+                    tty: true
+                    pull: always
+                '''
+        }
+    }
     options {
         timestamps()
     }
@@ -7,14 +26,20 @@ pipeline {
     stages {
         stage("Build"){
             steps{
-                sh 'printf "Building..."'
-                sh 'sleep 1s'
+                container(jnlp){
+                    sh 'printf "Building..."'
+                    sh 'ls'
+                    sh 'sleep 1s'
+                }
             }
         }
         stage("Test"){
             steps{
-                sh 'printf "Testing..."'
-                sh 'sleep 1s'
+                container(ubuntu){
+                    sh 'printf "Building..."'
+                    sh 'ls'
+                    sh 'sleep 1s'
+                }
             }
         }
     }
