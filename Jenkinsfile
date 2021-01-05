@@ -7,14 +7,7 @@ pipeline {
                 kind: Pod
                 spec:
                 containers:
-                - name: jnlp
-                  image: jenkins/jnlp-slave
-                  tty: true
-                  pull: always
-                  env:
-                  - name: JENKINS_URL
-                    value: "http://192.168.49.3:8080"
-                - name: ubuntu
+hi                - name: ubuntu
                   image: ubuntu
                   tty: true
                   pull: always
