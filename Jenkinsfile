@@ -26,7 +26,8 @@ spec:
         stage("Build"){
             steps{
                 sh 'printf "Building..."'
-                sh 'ls'
+                sh 'hostname'
+                sh 'ls -l'
                 sh 'sleep 1s'
             }
         }
@@ -34,7 +35,8 @@ spec:
             steps{
                 container('ubuntu'){
                     sh 'printf "Building..."'
-                    sh 'ls'
+                    sh 'hostname'
+                    sh 'ls -l'
                     sh 'sleep 1s'
                 }
             }
