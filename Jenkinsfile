@@ -32,7 +32,7 @@ pipeline {
         }
         stage("Test"){
             steps{
-                container(ubuntu){
+                container('ubuntu'){
                     sh 'printf "Building..."'
                     sh 'ls'
                     sh 'sleep 1s'
