@@ -11,8 +11,8 @@ spec:
       image: jenkins/jnlp-slave
       tty: true
       pull: always
-    - name: ubuntu
-      image: ubuntu
+    - name: golang
+      image: golang
       tty: true
       pull: always
                 '''
@@ -35,11 +35,12 @@ spec:
         }
         stage("Test"){
             steps{
-                container('ubuntu'){
+                container('golang'){
                     sh 'printf "Building..."'
                     sh 'hostname'
                     sh 'ls -l'
                     sh 'pwd'
+                    sh 'go version'
                     sh 'sleep 1s'
                 }
             }
