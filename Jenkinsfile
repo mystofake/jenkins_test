@@ -28,6 +28,8 @@ spec:
                 sh 'printf "Building..."'
                 sh 'hostname'
                 sh 'ls -l'
+                sh 'touch newFileBuilt'
+                sh 'pwd'
                 sh 'sleep 1s'
             }
         }
