@@ -3,18 +3,18 @@ pipeline {
         kubernetes {
             defaultContainer 'jnlp'
             yaml '''
-                apiVersion: v1
-                kind: Pod
-                spec:
-                    containers:
-                    - name: jnlp
-                    image: jenkins/jnlp-slave
-                    tty: true
-                    pull: always
-                    - name: ubuntu
-                    image: ubuntu
-                    tty: true
-                    pull: always
+apiVersion: v1
+kind: Pod
+spec:
+  containers:
+    - name: jnlp
+      image: jenkins/jnlp-slave
+      tty: true
+      pull: always
+    - name: ubuntu
+      image: ubuntu
+      tty: true
+      pull: always
                 '''
         }
     }
