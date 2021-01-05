@@ -7,7 +7,11 @@ pipeline {
                 kind: Pod
                 spec:
                 containers:
-hi                - name: ubuntu
+                - name: jnlp
+                  image: jenkins/jnlp-slave
+                  tty: true
+                  pull: always
+                - name: ubuntu
                   image: ubuntu
                   tty: true
                   pull: always
@@ -21,11 +25,9 @@ hi                - name: ubuntu
     stages {
         stage("Build"){
             steps{
-                container(jnlp){
-                    sh 'printf "Building..."'
-                    sh 'ls'
-                    sh 'sleep 1s'
-                }
+                sh 'printf "Building..."'
+                sh 'ls'
+                sh 'sleep 1s'
             }
         }
         stage("Test"){
