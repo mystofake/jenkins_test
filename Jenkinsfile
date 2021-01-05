@@ -6,15 +6,15 @@ pipeline {
                 apiVersion: v1
                 kind: Pod
                 spec:
-                containers:
-                - name: jnlp
-                  image: jenkins/jnlp-slave
-                  tty: true
-                  pull: always
-                - name: ubuntu
-                  image: ubuntu
-                  tty: true
-                  pull: always
+                    containers:
+                    - name: jnlp
+                    image: jenkins/jnlp-slave
+                    tty: true
+                    pull: always
+                    - name: ubuntu
+                    image: ubuntu
+                    tty: true
+                    pull: always
                 '''
         }
     }
