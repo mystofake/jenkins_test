@@ -3,9 +3,9 @@ def lintFiles(){
         for (entry in changeLogSet.getItems()) {
             for (file in entry.getAffectedFiles()) {
                 echo "Testing..."
-                echo file.getPath()
+                filePath = file.getPath()
                 sh '''
-                echo ${file.getPath()}
+                echo ${filePath}
                 '''
             }
         }
