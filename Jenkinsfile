@@ -1,3 +1,4 @@
+@NonCPS
 def lintFiles(){
     for (changeLogSet in currentBuild.changeSets) {
         for (entry in changeLogSet.getItems()) {
@@ -6,7 +7,7 @@ def lintFiles(){
                 filePath = file.getPath()
                 echo filePath
                 sh '''
-                echo filePath
+                echo ${filePath}
                 '''
             }
         }
