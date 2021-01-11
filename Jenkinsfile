@@ -5,8 +5,9 @@ def lintFiles(){
             for (file in entry.getAffectedFiles()) {
                 echo "Testing..."
                 def filePath = file.path
+                echo filePath
                 sh '''
-                echo ${filePath}
+                echo $filePath
                 '''
             }
         }
