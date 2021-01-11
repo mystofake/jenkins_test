@@ -6,7 +6,7 @@ def lintFiles(){
                 def filePath = file.path
                 echo filePath
                 sh '''
-                echo $filePath
+                echo ${filePath}
                 '''
             }
         }
