@@ -1,4 +1,4 @@
-lintFiles(){
+def lintFiles(){
     for (changeLogSet in currentBuild.changeSets) {
         for (entry in changeLogSet.getItems()) {
             for (file in entry.getAffectedFiles()) {
@@ -19,12 +19,6 @@ pipeline {
         stage("Lint"){
             steps{
                 lintFiles()
-                sh 'printf "Building..."'
-                sh 'hostname'
-                sh 'ls -l'
-                sh 'touch newFileBuilt'
-                sh 'pwd'
-                sh 'sleep 1s'
             }
         }
     }
