@@ -1,4 +1,3 @@
-@NonCPS
 def lintFiles(){
     for (changeLogSet in currentBuild.changeSets) {
         for (entry in changeLogSet.getItems()) {
@@ -22,7 +21,9 @@ pipeline {
     stages {
         stage("Lint"){
             steps{
-                lintFiles()
+                script{
+                    lintFiles()
+                }
             }
         }
     }
