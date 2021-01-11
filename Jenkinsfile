@@ -5,7 +5,9 @@ def lintFiles(){
             for (file in entry.getAffectedFiles()) {
                 echo "Testing..."
                 def filePath = file.path
+                def extension = filePath.split('\\.').last()
                 echo filePath
+                echo extension
                 sh """
                 echo ${filePath}
                 """
