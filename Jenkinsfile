@@ -8,9 +8,13 @@ def lintFiles(){
                 def extension = filePath.split('\\.').last()
                 echo filePath
                 echo extension
-                sh """
-                echo ${filePath}
-                """
+                if(extension == "jsonnet" || extension == "libsonnet")
+                {
+                    echo "Linting..."
+                    sh """
+                    echo ${filePath}
+                    """
+                }
             }
         }
     }
